@@ -1,0 +1,17 @@
+.AppLayout {
+  width: 36rem;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 8rem 1fr;
+  background-color: #151515;
+
+  & main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+    color: #fff;
+    height: 100vh;
+  }
+}

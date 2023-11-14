@@ -1,0 +1,59 @@
+.Todo {
+  background-color: #201f1f;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  height: 5rem;
+  padding: 1rem;
+  list-style: none;
+  border-radius: 1rem;
+
+  & input[type='checkbox'] {
+    appearance: initial;
+    width: 1.8rem;
+    height: 1.8rem;
+    border: 0.1rem solid #fff;
+    border-radius: 1000rem;
+    position: relative;
+    cursor: pointer;
+  }
+
+  & input[type='checkbox']:checked {
+    border: 0.1rem solid #7a7777;
+  }
+
+  & input[type='checkbox']:checked:after {
+    content: '\2713';
+    font-size: 1.3rem;
+    color: #7a7777;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  & p {
+    font-size: 1.2rem;
+  }
+
+  & div {
+    display: flex;
+    gap: 1rem;
+    margin-left: auto;
+
+    & .Trashcan,
+    .Edit {
+      cursor: pointer;
+      color: #7a7777;
+    }
+
+    & .Trashcan:hover,
+    .Edit:hover {
+      color: #ffff;
+    }
+  }
+}
+
+.isDone {
+  text-decoration: line-through;
+  color: #7a7777;
+}

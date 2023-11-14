@@ -1,35 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import TodoList from './views/TodoList';
+import AppLayout from './views/AppLayout';
+import AddTodo from './views/AddTodo';
+import { useState } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [todoList, setTodoList] = useState([]);
+
+  function handleAddTodo(newTodo) {
+    setTodoList((todoList) => [...todoList, newTodo]);
+  }
+
+  function handleDeleteTodo(id) {
+    setTodoList(todoList.filter((todo) => todo.id !== id));
+  }
+
+  function handleUpdateTodo(updatedTodo) {
+    setTodoList((todoList) => {
+      const todoIndex = todoList.findIndex(
+        (todo) => todo.id === updatedTodo.id
+      );
+
+      if (todoIndex !== -1) {
+        const updatedList = [...todoList];
+        updatedList[todoIndex] = updatedTodo;
+        return updatedList;
+      }
+
+      return [...todoList, updatedTodo];
+    });
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route element={<AppLayout />}>
+          <Route
+            path="/"
+            element={
+              <TodoList
+                handleDeleteTodo={handleDeleteTodo}
+                handleUpdateTodo={handleUpdateTodo}
+                todoList={todoList}
+              />
+            }
+          />
+          <Route
+            path="/add-todo"
+            element={<AddTodo handleAddTodo={handleAddTodo} />}
+          />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

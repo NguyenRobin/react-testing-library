@@ -1,0 +1,24 @@
+.AddTodo {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  & input {
+    min-height: 4rem;
+    padding: 2rem;
+    font-size: 2rem;
+  }
+
+  & button {
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    min-height: 3rem;
+    border-radius: 5rem;
+    transition: transform 0.3s;
+  }
+
+  & button:hover {
+    transform: scale(1.01);
+  }
+}
