@@ -18,6 +18,7 @@ function AddTodo({ handleAddTodo }) {
 
   function addTodo() {
     if (todoText === '') return;
+
     const id = generateID();
     const newTodo = { id, todo: todoText, done: false };
     handleAddTodo(newTodo);
@@ -35,7 +36,7 @@ function AddTodo({ handleAddTodo }) {
         type="text"
         value={todoText}
         onChange={handleOnChange}
-        placeholder="Todo..."
+        placeholder="Add new task"
       />
 
       <button onClick={addTodo}>Add</button>

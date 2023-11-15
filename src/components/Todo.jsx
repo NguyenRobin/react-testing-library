@@ -37,9 +37,8 @@ function Todo({ todo, done, id, handleDeleteTodo, handleUpdateTodo }) {
   }
 
   return (
-    <li className={styles.Todo}>
-      {/* <button onClick={test}>add upp</button> */}
-      <input type="checkbox" onChange={handleToggleCheckBox} />
+    <li className={styles.Todo} data-testid="todo">
+      <input type="checkbox" checked={isDone} onChange={handleToggleCheckBox} />
       {isEditing ? (
         <input
           type="text"
@@ -53,14 +52,25 @@ function Todo({ todo, done, id, handleDeleteTodo, handleUpdateTodo }) {
       <div>
         {isEditing ? (
           <AiOutlineCheck
+            title="AiOutlineCheck"
             className={styles.Edit}
             size={20}
             onClick={updateTodo}
           />
         ) : (
-          <BsPencil className={styles.Edit} size={20} onClick={startEditing} />
+          <BsPencil
+            title="BsPencil"
+            className={styles.Edit}
+            size={20}
+            onClick={startEditing}
+          />
         )}
-        <BsTrash className={styles.Trashcan} size={20} onClick={deleteTodo} />
+        <BsTrash
+          title="BsTrash"
+          className={styles.Trashcan}
+          size={20}
+          onClick={deleteTodo}
+        />
       </div>
     </li>
   );
