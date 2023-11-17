@@ -3,6 +3,10 @@
   flex-direction: column;
   gap: 3rem;
 
+  & div {
+    cursor: pointer;
+  }
+
   & input {
     min-height: 4rem;
     padding: 2rem;
@@ -10,7 +14,7 @@
   }
 
   & button {
-    background-color: #fff;
+    background-color: var(--btn-background);
     border: none;
     cursor: pointer;
     min-height: 3rem;

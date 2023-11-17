@@ -1,5 +1,5 @@
 .TodoList {
-  background-color: #151515;
+  background-color: var(--primary-background);
   display: flex;
   flex-direction: column;
   gap: 2rem;

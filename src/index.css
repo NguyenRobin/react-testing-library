@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 
+:root {
+  --primary-background: #151515;
+  --secondary-background: #201f1f;
+  --btn-background: #fff;
+}
+
 *,
 *::before,
 *::after {

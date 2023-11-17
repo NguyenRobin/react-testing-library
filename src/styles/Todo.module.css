@@ -1,5 +1,5 @@
 .Todo {
-  background-color: #201f1f;
+  background-color: var(--secondary-background);
   display: flex;
   gap: 1rem;
   align-items: center;

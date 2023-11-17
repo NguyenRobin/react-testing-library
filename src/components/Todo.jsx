@@ -47,7 +47,7 @@ function Todo({ todo, done, id, handleDeleteTodo, handleUpdateTodo }) {
           onChange={editTodoText}
         />
       ) : (
-        <p className={`${isDone ? styles.isDone : ''}`}>{todo}</p>
+        <p className={`${isDone && styles.isDone}`}>{todo}</p>
       )}
       <div>
         {isEditing ? (
