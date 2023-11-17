@@ -52,6 +52,27 @@ describe('App', () => {
     const arrOfListElements = screen.getAllByTestId('todo');
 
     expect(arrOfListElements.length).toBe(3);
-    screen.debug();
+  });
+
+  test('todo task should NOT have CSS class of "isDone" if not completed', () => {
+    render(<App />);
+
+    addTodos(['workout']);
+
+    const paragraphElement = screen.getByText(/workout/i);
+    expect(paragraphElement).not.toHaveClass('isDone');
+  });
+
+  test('todo task should have CSS class of "isDone" if clicked', () => {
+    render(<App />);
+
+    addTodos(['workout']);
+
+    const inputCheckbox = screen.getByRole('checkbox');
+    fireEvent.click(inputCheckbox);
+
+    const paragraphElement = screen.getByText(/workout/i);
+
+    expect(paragraphElement).toHaveClass('_isDone_4b5f7e'); // because of using modules in my css
   });
 });
